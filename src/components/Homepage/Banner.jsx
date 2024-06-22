@@ -3,7 +3,7 @@ import React from 'react'
 const Banner = () => {
   return (
     <div className="container mx-auto">
-      <div className="carousel w-full">
+      <div className="carousel w-full mt-12">
         {banners.map((banner, index) => (
           <div
             style={{
@@ -17,11 +17,16 @@ const Banner = () => {
             id={`slide${index + 1}`}
             className="carousel-item relative w-full bg-top bg-no-repeat rounded-lg h-[90vh]"
           >
-            <div>
-              <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+            <div className="h-full w-full flex items-center pl-36">
+              <div className='space-y-6'>
+                <h1 className="text-5xl font-bold">{banner.title}</h1>
+                <p>{banner.description}</p>
+                <button className='btn btn-primary mr-4'>Discover More</button>
+                <button className='btn btn-primary btn-outline'>Latest Project</button>
+              </div>
             </div>
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href={banner.prev} className="btn btn-circle">
+            <div className="absolute flex justify-between transform bottom-12 right-12">
+              <a href={banner.prev} className="btn btn-circle mr-6">
                 ❮
               </a>
               <a href={banner.next} className="btn btn-circle">
