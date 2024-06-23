@@ -82,6 +82,7 @@ const NavBar = () => {
             <BsCartXFill className="text-lx" />
             <FaSearch className="text-lx" />
             <a className="btn btn-outline btn-primary px-8">Appointment</a>
+            <Link href={'/login'} className="btn btn-primary px-8">SignIn</Link>
           </div>
         </div>
       </div>
