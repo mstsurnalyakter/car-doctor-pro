@@ -5,10 +5,28 @@ import Link from "next/link";
 import React from "react";
 import { BsGoogle, BsGithub } from "react-icons/bs";
 
-const signUpPage = async () => {
-  const handleSignUp = (e) => {
-    e.preventDefault();
+const signUpPage =  () => {
+
+const handleSignUp = async (event) => {
+  event.preventDefault();
+  const newUser = {
+    name: event.target.name.value,
+    email: event.target.email.value,
+    password: event.target.password.value,
   };
+  const resp = await fetch(`http://localhost:3000/signup/api`, {
+    method: "POST",
+    body: JSON.stringify(newUser),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+  if (resp.status === 200) {
+    event.target.reset();
+  }
+};
+
+
   return (
     <div className="container mx-auto mt-24 px-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">

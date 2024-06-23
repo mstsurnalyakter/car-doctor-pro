@@ -1,8 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-
 let db;
-
-const connectDB = async () => {
+export const connectDB = async () => {
   if (db) return db;
   try {
     const uri = process.env.NEXT_PUBLIC_MONGODB_URL;
@@ -16,8 +14,6 @@ const connectDB = async () => {
     db = client.db("car-doctor");
     return db;
   } catch (error) {
-    console.log(error);
+    console.log({ error });
   }
 };
-
-export default connectDB;
