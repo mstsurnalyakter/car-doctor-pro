@@ -14,10 +14,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="carDoctorTheme">
       <body className={inter.className}>
-        <NavBar/>
+        <NavBar />
+        <div className="min-h-[calc(100vh-345px)]">
         {children}
-        <Footer/>
-        </body>
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }
